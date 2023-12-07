@@ -4,10 +4,9 @@ on:
     branches:
     - main
   workflow_dispatch:
-  schedule:
-    - cron: '30 * * * 4,5'
+
 jobs:
-  job1:
+  build-job:
     runs-on: ubuntu-latest
     steps:
       - name: Say hello
@@ -16,4 +15,20 @@ jobs:
         run: uname -a
       - name: task 2 for printing hostname
         run: hostname
-
+      - name: task 3 sleep 30 seconds
+        run: sleep 30
+      - name: task 4 write completed
+        run: echo "Task 4 of build-job complete"
+  test-job:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Say hello
+        run: echo "Just want to say hello!"
+      - name: task 1 for printing OS details
+        run: uname -a
+      - name: task 2 for printing hostname
+        run: hostname
+      - name: task 3 sleep 30 seconds
+        run: sleep 30
+      - name: task 4 write completed
+        run: echo "Task 4 of test-job complete"
