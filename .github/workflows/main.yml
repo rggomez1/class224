@@ -6,7 +6,7 @@ on:
 
 jobs:
   job1:
-    runs-on: ubutntu-latest
+    runs-on: ubuntu-latest
     steps:
       - name: Say hello
         run: echo "Just want to say hello!"
