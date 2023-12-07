@@ -7,7 +7,7 @@ on:
 
 jobs:
   build-job:
-    runs-on: ubuntu-latest
+    runs-on: ron-do
     steps:
       - name: Say hello
         run: echo "Just want to say hello!"
@@ -18,7 +18,9 @@ jobs:
       - name: task 3 sleep 30 seconds
         run: sleep 30
       - name: task 4 write completed
-        run: echo "Task 4 of build-job complete"
+        run: |
+          echo "Task 4 of build-job complete"
+          touch /tmp/rontemp
   test-job:
     runs-on: ubuntu-latest
     steps:
