@@ -1,0 +1,16 @@
+name: workflow1
+on:
+  push:
+    branches:
+    - main
+
+jobs:
+  job1:
+    runs-on: ubutntu-latest
+    steps:
+      - name: Say hello
+        run: echo "Just want to say hello!"
+      - name: task 1 for printing OS details
+        run: uname -a
+      - name: task 2 for printing hostname
+        run: hostname
