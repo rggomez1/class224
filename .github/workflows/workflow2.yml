@@ -6,7 +6,8 @@ on:
   pull_request: 
     branches:
       - main
-      
+env:
+  USER1: rggomez1
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -17,5 +18,6 @@ jobs:
         run: |
          ls -l
          echo "github repo name is ${{ GITHUB.REPOSITORY }} and branch name is ${{ GITHUB.REF_NAME }} "
+         echo "Value for variable user1 is $USER1"
          pwd 
          java -version
