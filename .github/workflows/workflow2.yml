@@ -10,6 +10,7 @@ env:
   USER1: rggomez1
 jobs:
   build:
+    environment: dev
     env: 
       USER2: rgomez10
     runs-on: ubuntu-latest
@@ -23,6 +24,7 @@ jobs:
          ls -l
          echo "github repo name is ${{ GITHUB.REPOSITORY }} and branch name is ${{ GITHUB.REF_NAME }} "
          echo "Value for variable user1, user2 and user3 is $USER1, $USER2, $user3"
+         echo " Value for user1 and servername are ${{ vars.user1 }} and ${{ vars.server_name }}"
          pwd 
          java -version
   test:
