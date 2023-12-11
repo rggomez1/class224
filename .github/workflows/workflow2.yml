@@ -1,4 +1,4 @@
-name: workflow2
+cname: workflow2
 on:
   push:
     branches:
@@ -16,5 +16,6 @@ jobs:
       - name: step 2
         run: |
          ls -l
-         pwd
+         echo "github repo name is ${{ GITHUB.REPOSITORY }} and branch name is ${{ GITHUB.REF_NAME }} "
+         pwd 
          java -version
