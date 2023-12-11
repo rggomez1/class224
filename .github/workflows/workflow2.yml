@@ -1,0 +1,19 @@
+name: workflow2
+on:
+  push:
+    branches:
+      - main
+  pull_request: 
+    branches:
+      - main
+      
+jobs:
+  build:
+    runs-on: ubunto-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4.1.1
+      -name: step 2
+       run: |
+         ls -l
+         pwd
