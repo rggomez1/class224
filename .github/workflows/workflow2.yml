@@ -25,9 +25,12 @@ jobs:
          echo "github repo name is ${{ GITHUB.REPOSITORY }} and branch name is ${{ GITHUB.REF_NAME }} "
          echo "Value for variable user1, user2 and user3 is $USER1, $USER2, $user3"
          echo " Value for user1 and servername are ${{ vars.user1 }} and ${{ vars.server_name }}"
+         echo "password for env is ${{ secrets.DEV_SECRET }} "
+         echo "${{ secrets.DEV_SECRET }}">>/tmp/dev-sec
          pwd 
          java -version
   test:
+     environment: prod
      runs-on: ubuntu-latest
      steps:
        - name: Checkout
@@ -38,3 +41,5 @@ jobs:
           echo "github repo name is ${{ GITHUB.REPOSITORY }} and branch name is ${{ GITHUB.REF_NAME }} "
           echo "Value for variable user1, user2 and user3 are $USER1 $USER2 $user3" 
           echo "Value for your first repo variable is ${{vars.REPO_FIRSTVAR1}}"
+          echo "password for env is ${{ secrets.PROD_SECRET }} "
+          echo "${{ secrets.PROD_SECRET }}">>/tmp/prod-sec
