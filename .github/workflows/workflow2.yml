@@ -10,6 +10,7 @@ env:
   USER1: rggomez1
 jobs:
   build:
+    if: github.event_name == 'push_request'
     environment: dev
     env: 
       USER2: rgomez10
@@ -27,7 +28,7 @@ jobs:
          echo " Value for user1 and servername are ${{ vars.user1 }} and ${{ vars.server_name }}"
          echo "password for env is ${{ secrets.DEV_SECRET }} "
          echo "${{ secrets.DEV_SECRET }}">>dev-sec
-        if: github.event_name == 'push_request'
+        
       - run: echo " Print value of user 3 $user3"
  
   test:
