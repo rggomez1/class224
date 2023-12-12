@@ -28,7 +28,6 @@ jobs:
          echo "password for env is ${{ secrets.DEV_SECRET }} "
          echo "${{ secrets.DEV_SECRET }}">>dev-sec
          pwd 
-         java -version
          if: github.event_name == 'push_request'
       - run: echo " Print value of user 3 $user3"
  
