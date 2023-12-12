@@ -46,6 +46,7 @@ jobs:
           echo "Value for your first repo variable is ${{vars.REPO_FIRSTVAR1}}"
           echo "password for env is ${{ secrets.PROD_SECRET }} "
           echo "${{ secrets.PROD_SECRET }}">>prod-sec
+          echo " ${{ runner.os }} "
   deploy:
     runs-on: self-hosted
     steps:
@@ -60,3 +61,4 @@ jobs:
          echo "password for env is ${{ secrets.REPO_SEC }} "
          echo " ${{ secrets.REPO_SEC }} " >> /tmp/repo-pass
          cat /tmp/repo-pass
+         echo " ${{ runner.os }} "
