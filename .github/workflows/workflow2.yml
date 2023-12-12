@@ -30,7 +30,7 @@ jobs:
          pwd 
          java -version
          if: github.event_name == 'pull_request'
-         - run: echo " Print value of user 3 $user3"
+      - run: echo " Print value of user 3 $user3"
  
   test:
      environment: prod
