@@ -29,6 +29,9 @@ jobs:
          echo "${{ secrets.DEV_SECRET }}">>dev-sec
          pwd 
          java -version
+         if: github.event_name == 'pull_request'
+         - run: echo " Print value of user 3 $user3"
+ 
   test:
      environment: prod
      runs-on: self-hosted
@@ -43,3 +46,17 @@ jobs:
           echo "Value for your first repo variable is ${{vars.REPO_FIRSTVAR1}}"
           echo "password for env is ${{ secrets.PROD_SECRET }} "
           echo "${{ secrets.PROD_SECRET }}">>prod-sec
+    deploy:
+     runs-on: self-hosted
+     steps:
+       - name: Checkout
+         uses: actions/checkout@v4.1.1
+       - name: step 2
+         run: |
+          ls -l
+          echo "github repo name is ${{ GITHUB.REPOSITORY }} and branch name is ${{ GITHUB.REF_NAME }} "
+          echo " Value for user1 and servername are ${{ vars.user1 }} and ${{ vars.server_name }}"
+          echo "password for env is ${{ secrets.REPO_SEC }} "
+          echo " ${{ secrets.REPO_SEC }} " >> /tmp/repo-pass
+          cat /tmp/repo-pass
+
