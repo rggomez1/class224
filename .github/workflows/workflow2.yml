@@ -13,7 +13,7 @@ jobs:
     environment: dev
     env: 
       USER2: rgomez10
-    runs-on: ubuntu-latest
+    runs-on: self-hosted
     steps:
       - name: Checkout
         uses: actions/checkout@v4.1.1
@@ -31,7 +31,7 @@ jobs:
          java -version
   test:
      environment: prod
-     runs-on: ubuntu-latest
+     runs-on: self-hosted
      steps:
        - name: Checkout
          uses: actions/checkout@v4.1.1
