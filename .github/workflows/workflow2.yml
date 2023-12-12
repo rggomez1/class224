@@ -27,8 +27,7 @@ jobs:
          echo " Value for user1 and servername are ${{ vars.user1 }} and ${{ vars.server_name }}"
          echo "password for env is ${{ secrets.DEV_SECRET }} "
          echo "${{ secrets.DEV_SECRET }}">>dev-sec
-         pwd 
-         if: github.event_name == 'push_request'
+        if: github.event_name == 'push_request'
       - run: echo " Print value of user 3 $user3"
  
   test:
